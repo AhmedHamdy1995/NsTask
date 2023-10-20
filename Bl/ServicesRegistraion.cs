@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using NsTask.Api.Bl.Interfaces;
+using NsTask.Api.Bl.Services;
 using NsTask.Api.Data;
 using NsTask.Api.Domain.Enteties;
 
@@ -22,8 +24,8 @@ namespace NsTask.Api.Bl
                options => options.SignIn.RequireConfirmedAccount = false)
                .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            //services.AddScoped<IBusinessUnitRepository, BusinessUnitManager>();
-            //services.AddScoped<IDbEntityRepository, DbEntityManager>();
+            services.AddScoped<INsasTaskRepository, NsasTaskRepository>();
+            services.AddScoped<IAuthServices, AuthServices>();
 
             return services;
         }
