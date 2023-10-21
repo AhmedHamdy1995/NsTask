@@ -2,7 +2,7 @@
 
 namespace NsTask.Api.Dtos.Authorization
 {
-    public class TokenRequestModel
+    public class LoginModel
     {
         [Required]
         public string Email { get; set; }

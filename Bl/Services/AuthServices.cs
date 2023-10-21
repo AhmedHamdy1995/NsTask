@@ -74,7 +74,7 @@ namespace NsTask.Api.Bl.Services
     }
 
     //=================== get Token  method =====================================================================
-    public async Task<AuthModel> GetTokenAsync(TokenRequestModel model)
+    public async Task<AuthModel> GetTokenAsync(LoginModel model)
     {
         var authModel = new AuthModel();
 

@@ -30,7 +30,7 @@ namespace NsTask.Api.Controllers
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> GetTokenAsync([FromBody] TokenRequestModel model)
+    public async Task<IActionResult> GetTokenAsync([FromBody] LoginModel model)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);

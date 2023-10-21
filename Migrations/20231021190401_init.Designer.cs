@@ -12,8 +12,8 @@ using NsTask.Api.Data;
 namespace NsTask.Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231020193355_addtask")]
-    partial class addtask
+    [Migration("20231021190401_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
