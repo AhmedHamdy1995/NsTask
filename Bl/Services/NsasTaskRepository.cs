@@ -46,7 +46,7 @@ namespace NsTask.Api.Bl.Services
                 if (filters.stringfilters != null)
                     items = items.Where(a => a.Title != null && a.Title.ToLower().Contains(filters.stringfilters));
                
-                return items;
+               return items;
             }
             else
             {
