@@ -1,6 +1,8 @@
 ﻿using NsTask.Api.Bl.Interfaces;
 using NsTask.Api.Data;
 using NsTask.Api.Domain.Enteties;
+using NsTask.Api.Dtos.NsasTask;
+using System.Linq.Expressions;
 
 namespace NsTask.Api.Bl.Services
 {
@@ -33,6 +35,23 @@ namespace NsTask.Api.Bl.Services
         {
             db.nsasTasks.Remove(NsasTask);
             return Save();
+        }
+
+        public IQueryable<NsasTask> FilterTasks(NsasTaskFilters? filters = null)
+        {
+            if(filters != null)
+            {
+             var items = db.nsasTasks.Where(a => (filters.status == null || a.Status == filters.status));
+
+                if (filters.stringfilters != null)
+                    items = items.Where(a => a.Title != null && a.Title.ToLower().Contains(filters.stringfilters));
+               
+                return items;
+            }
+            else
+            {
+                return db.nsasTasks;
+            }
         }
 
         public NsasTask GetNsasTask(int Id)

@@ -8,6 +8,7 @@ namespace NsTask.Api.Dtos
         public NsasTaskMappings()
         {
             CreateMap<Domain.Enteties.NsasTask, NsasTaskDto>().ReverseMap();
+            //CreateMap<IEnumerable<Domain.Enteties.NsasTask>, IEnumerable<NsasTaskDto>>().ReverseMap();
         }
     }
 }

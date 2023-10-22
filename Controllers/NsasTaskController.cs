@@ -38,6 +38,16 @@ namespace NsTask.Api.Controllers
             return Ok(NsasTaskDtoList);
         }
 
+        [HttpGet(Name = "FilterTasks")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<NsasTaskDto>))]
+        public IActionResult filterNsasTasks([FromQuery] NsasTaskFilters filters)
+        {
+            var result = nsasTaskRepository.FilterTasks(filters);
+    
+            return Ok(mapper.Map<IEnumerable<NsasTaskDto>>(result));
+        }
+
+
         [HttpGet("{id}", Name = "GetTaskDetails")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(NsasTaskDto))]
         public IActionResult getNsasTask(int id)
